@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+  minecraft:
+    image: itzg/minecraft-server
+    container_name: minecraft-mod-server
+    ports:
+      - "25565:25565"
+    environment:
+      EULA: "TRUE"
+      TYPE: "FORGE"
+      VERSION: "1.20.1"
+      FORGE_VERSION: "47.1.0"   
+      ENABLE_COMMAND_BLOCK: "true"
+      ONLINE_MODE: "false"   
+      DIFFICULTY: "normal"  
+    volumes:
+      - ./mods:/mods
+      - ./data:/data
+    restart: unless-stopped
